@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/wellbeing/series.schema.json",
+  "title": "Long-form series",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "indicator_id",
+      "iso3",
+      "year",
+      "value",
+      "tier",
+      "unit",
+      "source_url",
+      "retrieval_date",
+      "limitations"
+    ],
+    "properties": {
+      "indicator_id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+      "iso3": { "type": "string", "pattern": "^[A-Z]{3}$" },
+      "year": { "type": "integer", "minimum": 1960, "maximum": 2100 },
+      "value": { "type": "number" },
+      "tier": { "type": "string", "enum": ["A", "B"] },
+      "unit": { "type": "string", "minLength": 1 },
+      "source_url": { "type": "string", "format": "uri" },
+      "retrieval_date": { "type": "string", "format": "date" },
+      "limitations": { "type": "string" }
+    }
+  }
+}

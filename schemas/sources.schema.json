@@ -1,1 +1,35 @@
-
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/wellbeing/sources.schema.json",
+  "title": "Indicator dictionary",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "indicator_id",
+      "label",
+      "definition",
+      "method_summary",
+      "tier",
+      "primary_source_name",
+      "primary_source_url",
+      "license_note",
+      "automation"
+    ],
+    "properties": {
+      "indicator_id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+      "label": { "type": "string", "minLength": 1 },
+      "definition": { "type": "string", "minLength": 1 },
+      "method_summary": { "type": "string" },
+      "tier": { "type": "string", "enum": ["A", "B"] },
+      "primary_source_name": { "type": "string" },
+      "primary_source_url": { "type": "string", "format": "uri" },
+      "license_note": { "type": "string" },
+      "automation": {
+        "type": "string",
+        "enum": ["automated", "manual_file", "planned"]
+      }
+    }
+  }
+}

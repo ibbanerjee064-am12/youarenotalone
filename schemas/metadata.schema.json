@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/wellbeing/metadata.schema.json",
+  "title": "Data package metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "built_at",
+    "coverage_note",
+    "changelog"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "pattern": "^1\\." },
+    "built_at": { "type": "string", "format": "date-time" },
+    "coverage_note": { "type": "string", "minLength": 1 },
+    "changelog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["at", "notes"],
+        "properties": {
+          "at": { "type": "string", "format": "date-time" },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

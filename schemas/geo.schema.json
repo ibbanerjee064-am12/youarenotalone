@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/wellbeing/geo.schema.json",
+  "title": "Geo directory",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["iso3", "name", "region"],
+    "properties": {
+      "iso3": { "type": "string", "pattern": "^[A-Z]{3}$" },
+      "name": { "type": "string", "minLength": 1 },
+      "region": { "type": "string" },
+      "income_level": { "type": "string" }
+    }
+  }
+}

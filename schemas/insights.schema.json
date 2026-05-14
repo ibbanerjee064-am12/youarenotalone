@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/wellbeing/insights.schema.json",
+  "title": "Rule-based insights",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "text", "indicator_id", "year", "citations"],
+    "properties": {
+      "id": { "type": "string" },
+      "text": { "type": "string", "minLength": 1 },
+      "indicator_id": { "type": "string" },
+      "year": { "type": "integer" },
+      "citations": {
+        "type": "array",
+        "items": { "type": "string", "format": "uri" },
+        "minItems": 1
+      }
+    }
+  }
+}

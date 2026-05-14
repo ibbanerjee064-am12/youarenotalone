@@ -1,0 +1,11 @@
+{
+  "name": "global-wellbeing-data-product",
+  "private": true,
+  "scripts": {
+    "data:build": "node scripts/build_data.mjs",
+    "data:validate": "node scripts/validate_data.mjs",
+    "site:install": "npm install --prefix site",
+    "site:dev": "npm run dev --prefix site",
+    "site:build": "npm run data:build && npm run data:validate && npm run build --prefix site"
+  }
+}
